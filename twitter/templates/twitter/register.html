@@ -1,0 +1,164 @@
+{% extends 'twitter/layout.html' %}
+
+{% block content %}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    {% load static %}
+    <link type="text/css" href="{% static 'css/css.css' %}" rel="stylesheet">
+    <link type="text/css" href="{% static 'css/alert.css' %}" rel="stylesheet">
+    <body class="login-page">
+        <div class="twitter-login-box">
+            <header>
+                <img src="../../static/img/yello LOGO.png" alt="twitter logo" class="logo" style="animation: logoAnimation 2s infinite alternate;">
+                <h1 style="color: #1DA1F2;">Regístrate en YELLO!</h1>
+            </header>
+
+            <form method="post" class="registration-form" onsubmit="return validateForm()">
+                {% csrf_token %}
+                {# Aquí se mostrarán los mensajes de éxito o error #}
+                {% if messages %}
+                    <div class="messages">
+                        {% for message in messages %}
+                            <div class="alert alert-{{ message.tags }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <script>
+                        var alerts = [];
+                        {% for message in messages %}
+                            alerts.push({
+                                title: "{{ message.tags }}",
+                                text: "{{ message }}",
+                                icon: "{% if message.tags == 'success' %}success{% else %}error{% endif %}"
+                            });
+                        {% endfor %}
+
+                        // Procesar alertas
+                        alerts.forEach(function(alert) {
+                            Swal.fire(alert);
+                        });
+                    </script>
+                {% endif %}
+
+                <div class="input-wrapper">
+                    <div class="column">
+                        <label for="user-name-id" style="color: #1DA1F2;">Nombre</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div class="column">
+                        <label for="user-name-id" style="color: #1DA1F2;">Nombre de usuario</label>
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="input-wrapper">
+                    <label for="user-name-id" style="color: #1DA1F2;" >Correo electrónico Institucional</label>
+                    {{ form.email }}
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="password-id" style="color: #1DA1F2;">Contraseña</label>
+                    {{ form.password1 }}
+                </div>
+                <div class="input-wrapper">
+                    <label for="password-id" style="color: #1DA1F2;">Confirmar contraseña</label>
+                    {{ form.password2 }}
+                    <span id="password-mismatch-error" style="color: red; display: none;">Las contraseñas no coinciden.</span>
+                </div>
+
+                <!-- Botón con color y animación -->
+                <button class="twitter-btn" style="background-color: #1DA1F2; animation: buttonAnimation 1s infinite;">
+                    Registrarse
+                </button>
+            </form>
+
+            <div class="footer">
+                <a href="http://127.0.0.1:8000/login/" style="color: #1DA1F2;">¿Ya tienes una cuenta? Iniciar sesión</a>
+            </div>
+        </div>
+
+        <script>
+            function validateForm() {
+                // Obtener los valores de los campos
+                var firstName = document.getElementById('id_first_name').value;
+                var username = document.getElementById('id_username').value;
+                var email = document.getElementById('id_email').value;
+                var password1 = document.getElementById('id_password1').value;
+                var password2 = document.getElementById('id_password2').value;
+
+                // Verificar si algún campo está vacío
+                if (firstName === '') {
+                    showAlert('Nombre');
+                    return false;  // Evitar que se envíe el formulario
+                }
+                if (username === '') {
+                    showAlert('Nombre de usuario');
+                    return false;  // Evitar que se envíe el formulario
+                }
+                if (email === '') {
+                    showAlert('Correo electrónico');
+                    return false;  // Evitar que se envíe el formulario
+                }
+                if (password1 === '' || password2 === '') {
+                    showAlert('Contraseña');
+                    return false;  // Evitar que se envíe el formulario
+                }
+
+                // Verificar si las contraseñas coinciden
+                if (password1 !== password2) {
+                    document.getElementById('password-mismatch-error').style.display = 'block';
+                    return false;  // Evitar que se envíe el formulario
+                } else {
+                    document.getElementById('password-mismatch-error').style.display = 'none';
+                }
+
+                return true;  // Enviar el formulario si todos los campos están llenos y las contraseñas coinciden
+            }
+
+            function showAlert(fieldName) {
+                Swal.fire({
+                    title: 'Campo Vacío',
+                    text: 'El campo "' + fieldName + '" no puede estar vacío.',
+                    icon: 'warning'
+                });
+            }
+        </script>
+
+        {% if messages %}
+  <ul class="messages">
+    {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+    
+
+<!-- Resto del contenido del template -->
+
+    </body>
+
+    <style>
+        /* Animación del logo */
+        @keyframes logoAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Animación del botón */
+        @keyframes buttonAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+{% endblock content %}

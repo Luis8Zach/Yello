@@ -1,0 +1,37 @@
+/* Estilo uniforme para botones */
+.btn-light {
+    padding: 5px 10px; /* Tamaño uniforme para todos los botones */
+    transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+}
+
+/* Color de fondo al pasar el ratón sobre los botones */
+.btn-light:hover {
+    background-color: #f0f0f0; /* Color de fondo al hacer hover */
+}
+
+/* Estilo para la imagen de perfil en forma de círculo */
+.rounded-circle {
+    width: 200px; /* Puedes ajustar el tamaño según tus preferencias */
+    height: 200px; /* Mantén la misma altura y ancho para formar un círculo */
+    object-fit: cover; /* Evita que la imagen se deforme al ajustarse al tamaño del círculo */
+    border-radius: 100%;
+    border-radius:color=black; /* Hace que la imagen sea un círculo mediante el radio de borde */
+}
+
+
+
+/* styles.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  form {
+    margin-bottom: 20px; /* Puedes ajustar el valor según tus preferencias */
+  }
+  
+  /* Otros estilos CSS que puedas necesitar */
+  
+ 

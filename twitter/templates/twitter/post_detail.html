@@ -1,0 +1,27 @@
+{% extends 'twitter/layout.html' %}
+
+{% block content %}
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.content }}</p>
+  <a href="{% url 'add_comment' post.id %}">Add Comment</a>
+
+  <!-- Lista de comentarios -->
+  {% if comments %}
+    <h2>Comments</h2>
+    <ul>
+      {% for comment in comments %}
+        <li>{{ comment.comment }} - {{ comment.author.username }}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No comments yet.</p>
+  {% endif %}
+
+  <!-- Formulario para agregar comentarios -->
+  <form method="post" action="{% url 'add_comment' post.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Comment</button>
+  </form>
+{% endblock %}
+

@@ -1,0 +1,112 @@
+{% extends 'twitter/layout.html' %}
+
+{% block content %}
+    {% load static %}
+    <link type="text/css" href="{% static 'css/login.css' %}" rel="stylesheet">
+    <script src="{% static 'js/sweetalert2.all.min.js' %}"></script>
+
+    <body class="login-page">
+        <div class="twitter-login-box">
+            <header>
+                <img src="../../static/img/yello LOGO.png" alt="twitter logo" class="logo" style="animation: logoAnimation 2s infinite alternate;">
+                <h1>Inicia Sesión</h1>
+            </header>
+
+            <form method="post" onsubmit="return validateLoginForm()">
+                {% csrf_token %}
+                {# Aquí se mostrarán los mensajes de éxito o error #}
+                {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    Swal.fire({
+                                        title: "{{ message.tags }}",
+                                        text: "{{ message }}",
+                                        icon: "{% if message.tags == 'success' %}success{% else %}error{% endif %}",
+                                        showConfirmButton: true
+                                    });
+                                });
+                            </script>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+                <div class="input-wrapper">
+                    <label for="user-name-id">Usuario</label>
+                    {{ form.username }}
+                </div>
+
+                <div class="input-wrapper">
+                    <label for="password-id">Contraseña</label>
+                    {{ form.password }}
+                </div>
+                {% if form.errors %}
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function () {
+                            Swal.fire({
+                                title: 'Datos incorrectos',
+                                text: 'Por favor, verifica tus datos e inténtalo de nuevo.',
+                                icon: 'error',
+                                showConfirmButton: true
+                            });
+                        });
+                    </script>
+                {% endif %}
+
+                <button class="twitter-btn">Iniciar Sesión</button>
+            </form>
+
+            <div class="footer">
+                <p><a href="{% url "password_reset" %}">¿Olvidaste tu contraseña?</a></p>
+                <a href="http://127.0.0.1:8000/register/">Regístrate en YELLO</a>
+            </div>
+        </div>
+
+        <script>
+            function validateLoginForm() {
+                var username = document.getElementById('id_username').value;
+                var password = document.getElementById('id_password').value;
+
+                if (username.trim() === '' || password.trim() === '') {
+                    showAlert('Todos los campos deben ser completados.');
+                    return false;
+                }
+
+                return true;
+            }
+
+            function showAlert(message) {
+                Swal.fire({
+                    title: 'Advertencia',
+                    text: message,
+                    icon: 'warning'
+                });
+            }
+        </script>
+    </body>
+
+    <style>
+        /* Animación del logo */
+        @keyframes logoAnimation {
+            0% {
+                transform: scale(1);
+            }
+            100% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Animación del botón */
+        @keyframes buttonAnimation {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+{% endblock content %}

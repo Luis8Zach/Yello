@@ -1,0 +1,145 @@
+/* Estilos para la página de registro */
+
+/* Contenedor principal */
+.twitter-login-box {
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Encabezado con logo y título */
+.twitter-login-box header {
+    text-align: center;
+}
+
+/* Logo más grande con animación */
+.twitter-login-box header img.logo {
+    width: 100px;
+    height: auto;
+}
+
+/* Título con color azul */
+.twitter-login-box header h1 {
+    color: #1DA1F2;
+}
+
+/* Formulario de registro */
+.twitter-login-box form {
+    margin-top: 20px;
+}
+
+/* Etiquetas y campos de entrada */
+.twitter-login-box label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #1DA1F2;
+}
+
+/* Estilos para las Cards */
+#tweetCards {
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 20px; /* Esquinas redondeadas */
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease-in-out; /* Transición para la animación al pasar el mouse */
+}
+
+#tweetCards:hover {
+    transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
+}
+
+/* Estilos para la animación del botón de Like */
+.like-btn {
+    transition: transform 0.3s ease-in-out; /* Transición para la animación al pasar el mouse */
+}
+
+.like-btn:hover {
+    transform: scale(1.2); /* Aumenta el tamaño al pasar el mouse */
+}
+
+/* Estilos para la animación del botón de Comentario */
+.comment-form {
+    transition: height 0.3s ease-in-out; /* Transición para la animación de altura al pasar el mouse */
+}
+
+/* Estilos para la animación del botón de Eliminar */
+.delete-btn {
+    transition: transform 0.3s ease-in-out; /* Transición para la animación al pasar el mouse */
+}
+
+.delete-btn:hover {
+    transform: rotate(360deg); /* Gira 360 grados al pasar el mouse */
+}
+
+/* Colores personalizados */
+body {
+    background: linear-gradient(135deg, #05385a, #f39c12, #e74c3c); /* Gradiente de colores azul, amarillo y rosa */
+    color: #333; /* Texto principal en color oscuro */
+}
+
+/* Agregar otras animaciones o estilos según tus preferencias */
+
+/* Estilos para la tarjeta personalizada */
+.custom-card {
+    background: linear-gradient(135deg, #3498db, #f39c12, #e74c3c); /* Gradiente de colores azul, amarillo y rosa */
+    color: #fff; /* Texto en color blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: background 0.3s ease-in-out; /* Transición para la animación de fondo */
+}
+
+.custom-card:hover {
+    background: linear-gradient(135deg, #3498db, #f39c12, #e74c3c, #3498db); /* Cambia el gradiente al pasar el mouse */
+}
+
+
+
+
+/* Campos de entrada */
+.twitter-login-box input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Botón de registro con color azul y animación */
+.twitter-btn {
+    width: 100%;
+    padding: 10px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Pie de página con enlace para iniciar sesión */
+.twitter-login-box .footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Enlace con color azul */
+.twitter-login-box .footer a {
+    color: #1DA1F2;
+    text-decoration: none;
+}
+
+/* Animación del botón de registro */
+@keyframes buttonAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

@@ -1,0 +1,132 @@
+/* editar.css */
+
+#main {
+    margin-top: 20px;
+}
+
+.tweet-wrap2 {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.input-wrapper {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+.twitter-btn:hover {
+    background-color: #0c7ebd;
+}
+
+/* Animación para el formulario */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+form {
+    animation: fadeIn 0.5s ease;
+}
+/* editar.css */
+
+#main {
+    margin-top: 20px;
+}
+
+.tweet-wrap2 {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.input-wrapper {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.twitter-btn {
+    background-color: #1da1f2;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.twitter-btn:hover {
+    background-color: #0c7ebd;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+form {
+    animation: fadeIn 0.5s ease;
+}
+
+
+/* editar.css */
+
+/* ... (otros estilos) ... */
+
+.twitter-btn {
+    background: linear-gradient(to right, #2196F3, #FFEB3B); /* Degradado azul a amarillo */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.twitter-btn:hover {
+    background: linear-gradient(to right, #0c7ebd, #FFD600); /* Cambio de color al pasar el mouse */
+    color: #fff;
+}
+

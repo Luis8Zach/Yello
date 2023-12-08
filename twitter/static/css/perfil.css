@@ -1,0 +1,86 @@
+
+
+.sidebar-card {
+    width: 18rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    width: 60%;
+    position: relative;
+    left: 62px;
+}
+
+.btn {
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.tweet-card {
+    background-color: #f8f9fa;
+}
+
+.sidebar-link {
+    text-decoration: none;
+    color: #657787;
+}
+/* Agrega este código al archivo editar.css */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.sidebar-card {
+    width: 300px;  /* Ancho de la tarjeta */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;  /* Centra la tarjeta horizontalmente */
+}
+
+.card-img-top {
+    width: 150px;  /* Ancho de la imagen */
+    height: 150px;  /* Altura de la imagen */
+    object-fit: cover;  /* Mantiene la proporción y recorta la imagen si es necesario */
+    border-radius: 50%;  /* Hace la imagen circular */
+    margin-top: 20px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    color: #333;
+}
+
+.btn-editar-perfil {
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #3498db;
+    color: #fff;
+    padding: 15px;
+    margin-top: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-editar-perfil:hover {
+    background-color: #2980b9;
+}
